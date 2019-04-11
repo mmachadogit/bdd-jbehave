@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Properties>
+        <Property name="log4j2.consoleLogLevel">INFO</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <ThresholdFilter level="${sys:log4j2.consoleLogLevel}" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{ISO8601} %p %c - %m%n"/>
+        </Console>
+
+        <Async name="ASYNC-CONSOLE">
+            <AppenderRef ref="console"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="ASYNC-CONSOLE"/>
+        </Root>
+    </Loggers>
+</Configuration>
