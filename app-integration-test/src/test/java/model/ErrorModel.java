@@ -10,6 +10,8 @@ public class ErrorModel {
   private String code;
   private String message;
 
+  public ErrorModel() {}
+
   public ErrorModel(String appErrorCode, String messsage) {
     this.code = appErrorCode;
     this.message = messsage;
